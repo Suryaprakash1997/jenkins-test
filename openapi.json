@@ -1,0 +1,58 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Date API",
+    "description": "API to get the current date with authorization.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Development server"
+    }
+  ],
+  "paths": {
+    "/date": {
+      "get": {
+        "summary": "Get current date",
+        "description": "Returns the current date in a human-readable format. Requires Bearer Token authorization.",
+        "operationId": "getDate",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with the current date",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "example": "Today's date is Wednesday, March 14, 2024."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized access"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}
