@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  default.conf.template: |
+    server {
+      listen 80;
+      location / {
+        return 200 "$RESPONSE_TEXT";
+        add_header Content-Type text/plain;
+      }
+    }
