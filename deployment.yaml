@@ -19,3 +19,4 @@ spec:
         image: nginx:1.23.4
         ports:
         - containerPort: 80
+    serviceAccountName: test-eksec2-aws-load-balancer-controller
