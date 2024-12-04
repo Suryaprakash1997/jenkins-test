@@ -21,7 +21,7 @@ spec:
         - containerPort: 80
         env:
         - name: RESPONSE_TEXT
-          value: "Hello from Nginx"
+          value: "Hello from Surya"
         volumeMounts:
         - name: custom-nginx-config
           mountPath: /etc/nginx/templates
