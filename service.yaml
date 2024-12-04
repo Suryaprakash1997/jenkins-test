@@ -2,11 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-service
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-subnets: "subnet-0a3016d6dd7515d10,subnet-0704686bb5d6928da"
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true" 
 spec:
   selector:
     app: nginx
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
+    - protocol: TCP
+      port: 80
+      targetPort: 80
   type: LoadBalancer
+
